@@ -5,20 +5,21 @@ const User = require('../models/user');
 const { github } = global.secret;
 
 passport.use(new GitHubStrategy({
-  cliendID: github.CLIENT_ID,
+  clientID: github.CLIENT_ID,
   clientSecret: github.CLIENT_SECRET,
   callbackURL: `/api/auth/github/callback`
   },
   (accessToken, refreshToken, profile, done) => {
+    console.log(profile.photos[0].value)
     const query = {
       profileId: profile.id
     };
 
     const updates = {
-      name: profile.name,
+      name: profile.displayName,
       profileId: profile.id,
-      token: accessToken,
-      avatar: profile.avatar_url
+      accessToken: accessToken,
+      avatar: profile.photos[0].value
     };
 
     const options = {
