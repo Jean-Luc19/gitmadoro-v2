@@ -15,6 +15,8 @@ if(process.env.NODE_ENV != 'production') {
 
 const app = express();
 
+global.secret = secret;
+
 const database = {
 };
 

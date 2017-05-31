@@ -4,17 +4,22 @@
   "description": "Server portion of a full-stack starter template",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon index.js",
+    "test": "--watch mocha"
   },
   "author": "Joe Turner <jturner@thinkful.com>",
   "license": "MIT",
   "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
+    "mocha": "^3.3.0",
     "nodemon": "^1.11.0"
   },
   "dependencies": {
     "express": "^4.14.1",
     "passport": "^0.3.2",
     "passport-github": "^1.1.0",
+    "mongoose": "^4.9.8",
     "passport-http-bearer": "^1.0.1"
   }
 }
