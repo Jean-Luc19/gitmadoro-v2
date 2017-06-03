@@ -10,7 +10,6 @@ passport.use(new GitHubStrategy({
   callbackURL: `/api/auth/github/callback`
   },
   (accessToken, refreshToken, profile, done) => {
-    console.log(profile.photos[0].value)
     const query = {
       profileId: profile.id
     };
