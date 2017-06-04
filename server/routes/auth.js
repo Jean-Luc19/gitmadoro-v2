@@ -28,9 +28,7 @@ router.get('/logout', (req, res) => {
 
 router.get('/me',
     passportGithub.authenticate('bearer', {session: false}),
-    (req, res) => res.json({
-        profileId: req.user.profileId
-    })
+    (req, res) => res.json({ user: req.user })
 );
 
 module.exports = router;
