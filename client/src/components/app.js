@@ -4,7 +4,7 @@ import * as Cookies from 'js-cookie';
 
 import LoginPage from './login-page';
 import { connect } from 'react-redux';
-import { fetchUser } from '../actions';
+import { fetchUser, fetchIssues } from '../actions';
 
 
 class App extends React.Component {
@@ -12,17 +12,20 @@ class App extends React.Component {
 
     componentDidMount() {
       this.props.fetchUser();
+
     }
 
     render() {
       let hi;
         if (this.props.user) {
-           hi = <p>Hi {this.props.user.name}</p>
+           hi = <p>Hi {this.props.user.name}</p>;
+           this.props.fetchIssues();
         }
 
         return (
           <div>
             {hi}
+            <button></button>
 
           </div>
         );
@@ -34,4 +37,4 @@ const mapStateToProps = (state, props) => ({
 
 });
 
-export default connect(mapStateToProps, { fetchUser })(App);
+export default connect(mapStateToProps, { fetchUser, fetchIssues })(App);
