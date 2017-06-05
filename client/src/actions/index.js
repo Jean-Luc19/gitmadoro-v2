@@ -17,7 +17,6 @@ export const fetchUser = () => dispatch => {
   })
     .then(response => response.json())
     .then(json => {
-      console.log(json.user)
       dispatch(fetchUserSuccess(json.user));
     });
 };
