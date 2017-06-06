@@ -12,20 +12,26 @@ class App extends React.Component {
 
     componentDidMount() {
       this.props.fetchUser();
+      this.props.fetchIssues();
 
     }
 
     render() {
-      let hi;
-        if (this.props.user) {
-           hi = <p>Hi {this.props.user.name}</p>;
-           this.props.fetchIssues();
-        }
+      const issues = this.props.issues ? this.props.issues.map(issue => {
+        return <li className="collection-item" key={issue.id}>{issue.title}</li>;
+      }) : '';
 
         return (
-          <div>
-            {hi}
-            <button></button>
+          <div className="container">
+            <div className="row">
+              <div className="col m8 offset-m2 s12 center card clock-container">
+                <i className="medium material-icons">settings</i>
+                <ul className="collection">
+                  {issues}
+                </ul>
+
+              </div>
+            </div>
 
           </div>
         );
@@ -34,6 +40,7 @@ class App extends React.Component {
 
 const mapStateToProps = (state, props) => ({
   user: state.user.currentUser,
+  issues: state.user.issues
 
 });
 
