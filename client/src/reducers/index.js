@@ -1,9 +1,10 @@
 import { combineReducers } from 'redux';
 
 import user from './reducer_user';
+import modal from './reducer_modal';
 
-const rootReducer = combineReducers({
-  user
+export default combineReducers({
+  user,
+  modal
+
 });
-
-export default rootReducer;

@@ -7,6 +7,8 @@ export const FETCH_USER_SUCCESS = 'FETCH_USER_SUCCESS';
 export const FETCH_USER_FAILURE = 'FETCH_USER_FAILURE';
 export const FETCH_ISSUES_SUCCESS = 'FETCH_ISSUES_SUCCESS';
 export const FETCH_ISSUES_FAILURE = 'FETCH_ISSUES_FAILURE';
+export const OPEN_MODAL = 'OPEN_MODAL';
+export const CLOSE_MODAL = 'CLOSE_MODAL';
 
 //--------------------------------------------------//
 
@@ -56,3 +58,11 @@ export const fetchIssues = () => dispatch => {
   .then(json => dispatch(fetchIssuesSuccess(json)))
   .catch(err => dispatch(fetchIssuesFailure(err)));
 };
+
+//--------------------Modal Actions--------------------//
+
+export const openModal = (modalType, props={}) => ({
+  type: OPEN_MODAL,
+  modalType,
+  modalProps: props
+});
