@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import * as Cookies from 'js-cookie';
-import LoginPage from './login-page';
 import { connect } from 'react-redux';
-import { fetchUser, fetchIssues } from '../actions';
+import { fetchUser, fetchIssues, openModal } from '../actions';
 
 
 class HomeContainer extends Component {
@@ -23,6 +22,7 @@ class HomeContainer extends Component {
             <div className="row">
               <div className="col m8 offset-m2 s12 card clock-container">
                 <i className="small material-icons icon">settings</i>
+                <button onClick={() => this.props.openModal("LOGIN_MODAL")}>Login</button>
                 <ul className="collection">
                   {issues}
                 </ul>
@@ -41,4 +41,4 @@ const mapStateToProps = (state, props) => ({
 
 });
 
-export default connect(mapStateToProps, { fetchUser, fetchIssues })(HomeContainer);
+export default connect(mapStateToProps, { fetchUser, fetchIssues, openModal })(HomeContainer);
