@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import * as Cookies from 'js-cookie';
 import { connect } from 'react-redux';
 import { fetchUser, fetchIssues, openModal } from '../actions';
+import { LOGIN_MODAL } from './modals/modal-types';
 
 
 class HomeContainer extends Component {
@@ -22,7 +23,7 @@ class HomeContainer extends Component {
             <div className="row">
               <div className="col m8 offset-m2 s12 card clock-container">
                 <i className="small material-icons icon">settings</i>
-                <button onClick={() => this.props.openModal("LOGIN_MODAL")}>Login</button>
+                <button onClick={() => this.props.openModal(LOGIN_MODAL)}>Login</button>
                 <ul className="collection">
                   {issues}
                 </ul>

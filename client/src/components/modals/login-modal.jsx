@@ -1,14 +1,12 @@
 import React from 'react';
+import ModalWrapper from './modal-wrapper';
+
 
 const LoginModal = props => {
     return (
-      <div>
-        <div className="modal-overlay" />
-        <div className="modal-content">
+      <ModalWrapper>
           <a href={'/api/auth/github'}>Login with Github</a>
-        </div>
-
-      </div>
+      </ModalWrapper>
     );
 };
 

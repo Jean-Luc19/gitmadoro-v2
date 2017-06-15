@@ -3,12 +3,13 @@ import HomeContainer from './home-container';
 import ModalConductor from './modal-conductor';
 
 
-export default () => {
+const App = () => {
   return (
     <div>
       <ModalConductor />
       <HomeContainer />
-
     </div>
   );
 };
+
+export default App;
