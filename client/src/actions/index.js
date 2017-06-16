@@ -66,3 +66,7 @@ export const openModal = (modalType, props={}) => ({
   modalType,
   modalProps: props
 });
+
+export const closeModal = () => ({
+  type: CLOSE_MODAL
+});

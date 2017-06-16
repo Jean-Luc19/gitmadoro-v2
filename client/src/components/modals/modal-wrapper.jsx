@@ -1,5 +1,6 @@
 import React from 'react';
-
+import { connect } from 'react-redux';
+import { closeModal } from '../../actions';
 
 
 const ModalWrapper = props => {
@@ -8,7 +9,11 @@ const ModalWrapper = props => {
         <div className="modal-body"></div>
           <div className="modal-content">
             <div className="modal-dialog">
-              <a className="waves-effect waves-light btn">Close</a>
+              <div className="top-bar">
+                <p>{props.title}</p>
+                <a className="waves-effect waves-light btn" onClick={() => props.closeModal()}>Close</a>
+              </div>
+
               {props.children}
 
             </div>
@@ -17,4 +22,4 @@ const ModalWrapper = props => {
     );
 };
 
-export default ModalWrapper;
+export default connect(null, { closeModal })(ModalWrapper);

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import * as Cookies from 'js-cookie';
 import { connect } from 'react-redux';
 import { fetchUser, fetchIssues, openModal } from '../actions';
 import { LOGIN_MODAL } from './modals/modal-types';
