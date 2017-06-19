@@ -9,25 +9,17 @@ class HomeContainer extends Component {
     componentDidMount() {
       this.props.fetchUser();
       this.props.fetchIssues();
-
     }
 
     render() {
-      const issues = this.props.issues ? this.props.issues.map(issue => {
-        return <li className="collection-item" key={issue.id}>{issue.title}</li>;
-        }) : '';
 
         return (
-          <div className="container">
-            <div className="row">
-              <div className="col m8 offset-m2 s12 card clock-container">
-                <i className="small material-icons icon">settings</i>
-                <button onClick={() => this.props.openModal(LOGIN_MODAL)}>Login</button>
-                <ul className="collection">
-                  {issues}
-                </ul>
-
-              </div>
+          <div className="home-container">
+            <h1>25:00</h1>
+            <div className="buttons">
+              <button className='btn' onClick={() => this.props.openModal(LOGIN_MODAL)}>Login</button>
+              <button>Work!</button>
+              <button>About</button>
             </div>
 
           </div>
