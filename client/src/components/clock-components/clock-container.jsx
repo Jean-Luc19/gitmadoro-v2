@@ -4,24 +4,46 @@ class ClockContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      time: 15
+      pomDuration: 0,
+      timeRunning: false
     };
   }
 
+  tick() {
+    if(this.state.remainingTime <= 55) {
+      this.stopClock();
+    }else {
+      this.setState({remainingTime: this.state.pomDuration --});
+    }
 
-  startClock() {
-    this.clock = setInterval(
-      () => {
-        return this.setState({time: this.state.time --});},
-      1000);
   }
 
+  startClock() {
+    this.clock = setInterval(() => this.tick(), 1000);
+  }
+
+  stopClock() {
+    clearInterval(this.clock);
+  }
+
+  handleChange(e) {
+    const enteredTime = e.target.value * 60;
+    this.setState({pomDuration: enteredTime});
+  }
+
+
+
   render() {
+    const showTime = this.state.timeRunning ? this.state.remainingTime : this.state.pomDuration;
 
     return (
       <div>
-        {this.state.time}
+        {showTime}
         <button onClick={this.startClock.bind(this)}>Start</button>
+        <form>
+          <input onChange={this.handleChange.bind(this)} type="number" min="5" max="60" placeholder="how long shall you pom?"/>
+
+        </form>
       </div>
     );
 

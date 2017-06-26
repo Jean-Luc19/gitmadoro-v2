@@ -4,7 +4,7 @@ import ClockContainer from '../clock-components/clock-container';
 
 const ClockModal = props => {
   return (
-    <ModalWrapper>
+    <ModalWrapper title="Configure The Pom">
       <ClockContainer />
     </ModalWrapper>
   );
