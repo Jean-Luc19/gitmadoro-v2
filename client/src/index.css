@@ -9,6 +9,7 @@ body {
 
 h1,
 h2 {
+  margin: 0;
   font-weight: 700;
   font-size: 300%;
   color: #00ADB5;
@@ -26,12 +27,6 @@ p {
   margin-top: 15%;
   text-align: center;
 }
-
-.home-card {
-
-}
-
-
 
 .modal-body {
   position: fixed;
@@ -63,7 +58,7 @@ p {
   position: relative;
   outline: 0;
   width: auto;
-  width: 400px;
+  width: 500px;
   min-height: 400px;
   background: #EEEEEE;
   box-sizing: border-box;
@@ -73,7 +68,22 @@ p {
 }
 
 .top-bar {
+  background-color: #00ADB5;
   display: flex;
   justify-content: space-between;
+  padding: 15px;
   margin-bottom: 15px;
+}
+
+.pom-settings {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}
+
+.settings-icons {
+  padding: 5%;
+  font-size: 200%;
+  color: #00ADB5;
+  cursor: pointer;
 }
