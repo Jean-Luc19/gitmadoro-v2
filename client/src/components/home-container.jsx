@@ -15,7 +15,7 @@ class HomeContainer extends Component {
 
         return (
           <div className="home-container">
-            <h1>25:00</h1>
+            <h1>GitMadoro</h1>
             <div className="buttons">
               <button onClick={() => this.props.openModal(LOGIN_MODAL)}>Login</button>
               <button onClick={() => this.props.openModal(CONFIGURE_POM_MODAL)}>Work</button>
