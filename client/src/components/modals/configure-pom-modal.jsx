@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import ModalWrapper from './modal-wrapper';
 import { openModal } from '../../actions';
 import SetPomTime from '../set-pom-time';
+import PomPreview from '../pom-preview';
 
 
 class ConfigurePomModal extends Component {
@@ -19,7 +20,7 @@ class ConfigurePomModal extends Component {
 
     this.handleClick = this.handleClick.bind(this);
     this.setTime = this.setTime.bind(this);
-    this.pomPreview = this.pomPreview.bind(this);
+
   }
 
   handleClick() {
@@ -30,28 +31,15 @@ class ConfigurePomModal extends Component {
     }
   }
 
-  setTime(time, clock=this.state.pomDuration) {
-     this.setState({pomDuration: this.state.pomDuration + time});
-  }
-
-  pomPreview() {
-
-    if (!this.state.pomDurationSet) {
-      return '';
+  setTime(time) {
+    if(!this.state.pomDurationSet){
+      this.setState({ pomDuration: this.state.pomDuration + time });
     }
-    const time = this.state.pomDuration;
-    const minutes = Math.floor(time / 60);
-    const seconds = time % 60 === 0 ? '00' : time % 60;
-
-    return (
-      <div>
-        <p>Work Time: {`${minutes}:${seconds}`}</p>
-      </div>
-    );
+    this.setState({ breakDuration: this.state.breakDuration + time });
   }
 
   render() {
-    const pomPreview = this.pomPreview();
+
     return (
       <ModalWrapper title="Set Up">
         <div>Set the duration and goal of your pom session</div>
@@ -60,8 +48,8 @@ class ConfigurePomModal extends Component {
           onClick={this.handleClick}
           time={this.state}
         />
-        {pomPreview}
 
+        <PomPreview timer={this.state}/>
 
       </ModalWrapper>
     );
