@@ -6,6 +6,7 @@ import ModalWrapper from './modal-wrapper';
 import { openModal } from '../../actions';
 import SetPomTime from '../set-pom-time';
 import PomPreview from '../pom-preview';
+import SetPomGoal from '../set-pom-goal';
 
 
 class ConfigurePomModal extends Component {
@@ -43,11 +44,7 @@ class ConfigurePomModal extends Component {
     return (
       <ModalWrapper title="Set Up">
         <div>Set the duration and goal of your pom session</div>
-        <SetPomTime
-          setTime={this.setTime}
-          onClick={this.handleClick}
-          time={this.state}
-        />
+        <SetPomGoal />
 
         <PomPreview timer={this.state}/>
 
@@ -57,3 +54,9 @@ class ConfigurePomModal extends Component {
 };
 
 export default connect(null, { openModal })(ConfigurePomModal);
+
+{/* <SetPomTime
+  setTime={this.setTime}
+  onClick={this.handleClick}
+  time={this.state}
+/> */}
