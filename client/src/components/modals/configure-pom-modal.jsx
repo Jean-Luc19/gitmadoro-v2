@@ -31,7 +31,7 @@ class ConfigurePomModal extends Component {
   handleClick() {
     if(!this.state.pomDurationSet) {
       this.setState({pomDurationSet: true});
-      
+      this.props.setPomTime(this.state.pomDuration);
     } else {
       this.setState({breakDurationSet: true});
       this.props.setBreakTime(this.state.breakDuration);
