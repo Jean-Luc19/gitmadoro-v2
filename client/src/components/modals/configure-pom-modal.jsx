@@ -3,7 +3,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import ModalWrapper from './modal-wrapper';
-import { openModal } from '../../actions';
+import {
+  openModal,
+  setPomTime,
+  setBreakTime
+ } from '../../actions';
 import SetPomTime from '../set-pom-time';
 import PomPreview from '../pom-preview';
 import SetPomGoal from '../set-pom-goal';
@@ -27,8 +31,10 @@ class ConfigurePomModal extends Component {
   handleClick() {
     if(!this.state.pomDurationSet) {
       this.setState({pomDurationSet: true});
+      
     } else {
       this.setState({breakDurationSet: true});
+      this.props.setBreakTime(this.state.breakDuration);
     }
   }
 
@@ -44,8 +50,11 @@ class ConfigurePomModal extends Component {
     return (
       <ModalWrapper title="Set Up">
         <div>Set the duration and goal of your pom session</div>
-        <SetPomGoal />
-
+        <SetPomTime
+         setTime={this.setTime}
+         onClick={this.handleClick}
+         time={this.state}
+        />
         <PomPreview timer={this.state}/>
 
       </ModalWrapper>
@@ -53,10 +62,4 @@ class ConfigurePomModal extends Component {
   }
 };
 
-export default connect(null, { openModal })(ConfigurePomModal);
-
-{/* <SetPomTime
-  setTime={this.setTime}
-  onClick={this.handleClick}
-  time={this.state}
-/> */}
+export default connect(null, { openModal, setPomTime, setBreakTime  })(ConfigurePomModal);

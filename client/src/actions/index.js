@@ -9,6 +9,8 @@ export const FETCH_ISSUES_SUCCESS = 'FETCH_ISSUES_SUCCESS';
 export const FETCH_ISSUES_FAILURE = 'FETCH_ISSUES_FAILURE';
 export const OPEN_MODAL = 'OPEN_MODAL';
 export const CLOSE_MODAL = 'CLOSE_MODAL';
+export const SET_POM_TIME = 'SET_POM_TIME';
+export const SET_BREAK_TIME = 'SET_BREAK_TIME';
 
 //--------------------------------------------------//
 
@@ -69,4 +71,15 @@ export const openModal = (modalType, props={}) => ({
 
 export const closeModal = () => ({
   type: CLOSE_MODAL
+});
+
+//--------------------Pom Settings Actions--------------------//
+
+export const setPomTime = time => ({
+  type: SET_POM_TIME,
+  time
+});
+export const setBreakTime = time => ({
+  type: SET_BREAK_TIME,
+  time
 });

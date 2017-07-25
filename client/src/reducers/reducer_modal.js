@@ -5,16 +5,16 @@ const initialState = {
   modalProps: {}
 };
 
-export default (state = initialState, action) => {
+export default (state = {}, action) => {
   switch (action.type) {
     case OPEN_MODAL:
       return {
-        modalType: action.modalType,
+        ...state, modalType: action.modalType,
         modalProps: action.modalProps
       };
     case CLOSE_MODAL:
       return initialState;
+    default:
+      return state;
   }
-
-  return initialState;
 };

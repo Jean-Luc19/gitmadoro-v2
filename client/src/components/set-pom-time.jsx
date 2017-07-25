@@ -13,6 +13,8 @@ const SetPomTime = props => {
     seconds = breakDuration % 60 === 0 ? '00' : breakDuration % 60;
   }
 
+  const buttonText = pomDurationSet ? 'Set Break Time' : 'Set Pom Duration';
+
 
   return (
     <div>
@@ -21,7 +23,7 @@ const SetPomTime = props => {
         <h1>{`${minutes}:${seconds}`}</h1>
         <i className="material-icons settings-icons" onClick={() => props.setTime(30)}>forward_30</i>
       </div>
-      <button onClick={props.onClick}>Set</button>
+      <button onClick={props.onClick}>{buttonText}</button>
     </div>
   );
 };

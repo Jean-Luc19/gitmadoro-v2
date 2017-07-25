@@ -4,30 +4,21 @@ import { connect } from 'react-redux';
 
 class SetPomGoal extends Component {
 
-
-
   renderProjects(projects) {
-    console.log(projects)
-
-    return projects.map(project => {
-      <li key={project.id}>{project.body}</li>;
-    });
+    return projects.map(project =>
+      <div className="project-item" key={project.id}>{project.body}</div>
+    );
   }
-
 
   render() {
     const { projects } = this.props;
 
-    let currentProjects;
-    if (projects.length > 1) {
-      currentProjects = this.renderProjects(projects);
-    } else {
-      currentProjects = 'dude ';
-    }
+    let currentProjects = projects.length > 1 ?  this.renderProjects(projects) : '';
+
     return (
       <div>
         <div>Add New Project</div>
-        <ul>{currentProjects}</ul>
+        {currentProjects}
       </div>
     );
   }

@@ -5,7 +5,7 @@ import ClockModal from './modals/clock-modal';
 import ConfigurePomModal from './modals/configure-pom-modal';
 import { LOGIN_MODAL, CLOCK_MODAL, CONFIGURE_POM_MODAL } from './modals/modal-types';
 
-const ModalConductor = props => {
+const ModalConductor = (props) => {
   switch (props.modalType) {
     case LOGIN_MODAL:
       return <LoginModal />;
