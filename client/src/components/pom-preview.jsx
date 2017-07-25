@@ -9,14 +9,14 @@ const pomPreview = ({ pomTime, breakTime }) => {
   const breakMinutes = Math.floor(breakTime / 60);
   const breakSeconds = breakTime % 60 === 0 ? '00' : breakTime % 60;
 
-  const pomsTime = pomTime ? <p>Work Time: {`${pomMinutes}:${pomSeconds}`}</p> : '';
+  const pomDisplayTime = pomTime ? <p>Work Time: {`${pomMinutes}:${pomSeconds}`}</p> : '';
 
-  const breaksTime = breakTime ? <p>Break Time: {`${breakMinutes}:${breakSeconds}`}</p> : '';
+  const breakDisplayTime = breakTime ? <p>Break Time: {`${breakMinutes}:${breakSeconds}`}</p> : '';
 
     return (
       <div>
-        {pomsTime}
-        {breaksTime}
+        {pomDisplayTime}
+        {breakDisplayTime}
       </div>
     );
 

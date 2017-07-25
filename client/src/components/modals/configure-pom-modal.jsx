@@ -17,6 +17,7 @@ class ConfigurePomModal extends Component {
   constructor(props) {
     super(props);
     this.state = {
+        projectSet: false,
         pomDuration: 1500,
         pomDurationSet: false,
         breakDuration: 300,
@@ -45,18 +46,28 @@ class ConfigurePomModal extends Component {
     this.setState({ breakDuration: this.state.breakDuration + time });
   }
 
-  render() {
-
-    return (
-      <ModalWrapper title="Set Up">
-        <div>Set the duration and goal of your pom session</div>
+  renderTimerSettings() {
+    if (this.state.projectSet){
+      return (
         <SetPomTime
          setTime={this.setTime}
          onClick={this.handleClick}
          time={this.state}
         />
-        <PomPreview timer={this.state}/>
+      );
+    }
+  }
 
+  render() {
+
+    return (
+      <ModalWrapper title="Set Up">
+        <div>
+          <h2>Configure your Mater</h2>
+        </div>
+        <SetPomGoal />
+        {this.renderTimerSettings()}
+        <PomPreview />
       </ModalWrapper>
     );
   }

@@ -17,7 +17,10 @@ class SetPomGoal extends Component {
 
     return (
       <div>
-        <div>Add New Project</div>
+        <p>Select a Project or create a new one</p>
+        <form>
+          <input type="text" placeholder="Enter a Project Name"/>
+        </form>
         {currentProjects}
       </div>
     );
