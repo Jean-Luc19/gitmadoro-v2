@@ -94,3 +94,7 @@ p {
   color: #00ADB5;
   cursor: pointer;
 }
+
+.hidden {
+  display: none;
+}
