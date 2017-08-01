@@ -37,12 +37,10 @@ class SetPomGoal extends Component {
   }
 
   handleChange(e) {
-    console.log(this.state.text)
     this.setState({ text: e.target.value });
   }
 
   handleSubmit(e) {
-    console.log('handle submit')
     e.preventDefault();
     console.log(this.state.text);
   }
