@@ -42,7 +42,7 @@ class SetPomGoal extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log(this.state.text);
+    this.setState({ addingProject: false });
   }
 
   render() {
