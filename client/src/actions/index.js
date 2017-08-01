@@ -37,7 +37,10 @@ export const fetchUser = () => dispatch => {
   })
     .then(response => response.json())
     .then(json => dispatch(fetchUserSuccess(json.user)))
-    .catch(err => dispatch(fetchUserFailure(err)));
+    .catch(err => {
+      console.log(err)
+      dispatch(fetchUserFailure(err))
+    });
 };
 
 //--------------------Fetch User Issues--------------------//
@@ -87,5 +90,22 @@ export const setBreakTime = time => ({
 
 export const setPomProject = id => ({
     type: SET_POM_PROJECT,
-    id  
+    id
 });
+
+export const addNewProject = title => dispatch => {
+    const token = Cookies.get('accessToken');
+    return fetch('/api/projects/new', {
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      },
+      method: 'POST',
+      body: JSON.stringify({title})
+    })
+    .then((res) => res.json())
+    .then(json => {
+
+    })
+    .catch((err) => console.log(err));
+};

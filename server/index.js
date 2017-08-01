@@ -16,6 +16,7 @@ if(process.env.NODE_ENV != 'production') {
 global.secret = secret;
 
 const authRoutes = require('./routes/auth');
+const projectsRoutes = require('./routes/projects');
 
 const app = express();
 
@@ -24,6 +25,7 @@ app.use(passport.initialize());
 app.use(bodyParser.json());
 
 app.use('/api/auth', authRoutes);
+app.use('/api/projects', projectsRoutes);
 
 // Serve the built client
 

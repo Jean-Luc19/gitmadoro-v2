@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ProjectForm from './project-form';
+import { setPomProject, addNewProject } from '../actions';
 
 
 class SetPomGoal extends Component {
@@ -43,6 +44,7 @@ class SetPomGoal extends Component {
   handleSubmit(e) {
     e.preventDefault();
     this.setState({ addingProject: false });
+    this.props.addNewProject(this.state.text);
   }
 
   render() {
@@ -67,4 +69,4 @@ const mapStateToProps = (state) => ({
   projects: state.user.issues
 });
 
-export default connect(mapStateToProps)(SetPomGoal);
+export default connect(mapStateToProps, { setPomProject, addNewProject })(SetPomGoal);
