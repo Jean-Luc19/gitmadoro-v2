@@ -17,7 +17,6 @@ class ConfigurePomModal extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        projectSet: false,
         pomDuration: 1500,
         pomDurationSet: false,
         breakDuration: 300,
@@ -42,20 +41,24 @@ class ConfigurePomModal extends Component {
   setTime(time) {
     if(!this.state.pomDurationSet){
       this.setState({ pomDuration: this.state.pomDuration + time });
+    } else {
+      this.setState({ breakDuration: this.state.breakDuration + time });
     }
-    this.setState({ breakDuration: this.state.breakDuration + time });
   }
 
-  renderTimerSettings() {
-    if (this.state.projectSet){
+  renderPomConfigs() {
+    if (!this.props.currentProject){
       return (
-        <SetPomTime
-         setTime={this.setTime}
-         onClick={this.handleClick}
-         time={this.state}
-        />
+        <SetPomGoal />
       );
     }
+    return (
+      <SetPomTime
+       setTime={this.setTime}
+       onClick={this.handleClick}
+       time={this.state}
+      />
+    );
   }
 
   render() {
@@ -65,12 +68,15 @@ class ConfigurePomModal extends Component {
         <div>
           <h2>Configure your Mater</h2>
         </div>
-        <SetPomGoal />
-        {this.renderTimerSettings()}
+        {this.renderPomConfigs()}
         <PomPreview />
       </ModalWrapper>
     );
   }
 };
 
-export default connect(null, { openModal, setPomTime, setBreakTime  })(ConfigurePomModal);
+const mapStateToProps = state => ({
+  currentProject: state.pom.currentProject
+});
+
+export default connect(mapStateToProps, { openModal, setPomTime, setBreakTime  })(ConfigurePomModal);

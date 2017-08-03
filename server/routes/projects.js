@@ -14,10 +14,9 @@ router.post('/new', bearerAuth, (req, res) => {
     title: req.body.title,
     creator: req.user._id
   });
-
   project.save()
-    .then(res => {
-      console.log(res);
+    .then(response => {
+      res.status(201).json(response);
     });
 
 });

@@ -38,8 +38,7 @@ export const fetchUser = () => dispatch => {
     .then(response => response.json())
     .then(json => dispatch(fetchUserSuccess(json.user)))
     .catch(err => {
-      console.log(err)
-      dispatch(fetchUserFailure(err))
+      dispatch(fetchUserFailure(err));
     });
 };
 
@@ -88,9 +87,9 @@ export const setBreakTime = time => ({
   time
 });
 
-export const setPomProject = id => ({
+export const setPomProject = project => ({
     type: SET_POM_PROJECT,
-    id
+    project
 });
 
 export const addNewProject = title => dispatch => {
@@ -104,8 +103,6 @@ export const addNewProject = title => dispatch => {
       body: JSON.stringify({title})
     })
     .then((res) => res.json())
-    .then(json => {
-
-    })
-    .catch((err) => console.log(err));
+    .then((json) => dispatch(setPomProject(json)))
+    .catch((err) => console.log('error:', err));
 };

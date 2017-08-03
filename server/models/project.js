@@ -8,6 +8,9 @@ const ProjectSchema = new Schema({
     ref: 'User',
     required: true
   }
+},
+{
+  timestamps: true
 });
 
 const Project = mongoose.model('Project', ProjectSchema);
