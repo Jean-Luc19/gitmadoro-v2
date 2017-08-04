@@ -21,17 +21,16 @@ class SetPomGoal extends Component {
     );
   }
 
+  hide() {
+    return this.state.addingProject ? 'hidden' : '';
+  }
   renderHeadingText() {
-    let display = this.state.addingProject ? 'hidden' : '';
     if (this.props.projects.length < 1) {
       return <h3>Add a New Project and Start Pomming</h3>;
     } else {
       return (
-        <div className={display}>
+        <div className={this.hide()}>
           <h3>Select a Current Project to Work On</h3>
-          <button  onClick={() => this.setState({ addingProject: true })}>
-            Or Create a New One
-          </button>
         </div>
       );
     }
@@ -49,17 +48,22 @@ class SetPomGoal extends Component {
 
   render() {
     const { projects } = this.props;
-    let currentProjects = projects.length > 1 ?  this.renderProjects(projects) : '';
+    let currentProjects = projects.length > 1 && !this.state.addingProject ?  this.renderProjects(projects) : '';
 
     return (
       <div>
         {this.renderHeadingText()}
+        {currentProjects}
         <ProjectForm
           addingProject={this.state.addingProject}
           onChange={this.handleChange}
           onSubmit={this.handleSubmit}
         />
-        {currentProjects}
+        <button
+          className={this.hide()}
+          onClick={() => this.setState({ addingProject: true })}>
+          Or Create a New One
+        </button>
       </div>
     );
   }

@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-
 import { connect } from 'react-redux';
-
 import ModalWrapper from './modal-wrapper';
+import { FINAL_PREVIEW_MODAL } from './modal-types';
 import {
   openModal,
   setPomTime,
@@ -35,6 +34,7 @@ class ConfigurePomModal extends Component {
     } else {
       this.setState({breakDurationSet: true});
       this.props.setBreakTime(this.state.breakDuration);
+      this.props.openModal(FINAL_PREVIEW_MODAL);
     }
   }
 
@@ -62,11 +62,10 @@ class ConfigurePomModal extends Component {
   }
 
   render() {
-
     return (
       <ModalWrapper title="Set Up">
         <div>
-          <h2>Configure your Mater</h2>
+          <h2>Configure your Pomodoro Session</h2>
         </div>
         {this.renderPomConfigs()}
         <PomPreview />
@@ -79,4 +78,4 @@ const mapStateToProps = state => ({
   currentProject: state.pom.currentProject
 });
 
-export default connect(mapStateToProps, { openModal, setPomTime, setBreakTime  })(ConfigurePomModal);
+export default connect(mapStateToProps, { openModal, setPomTime, setBreakTime })(ConfigurePomModal);
