@@ -1,17 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { convertTime } from '../utils/convert-time';
 
 const pomPreview = ({ pomTime, breakTime, currentProject }) => {
 
-  const pomMinutes = Math.floor(pomTime / 60);
-  const pomSeconds = pomTime % 60 === 0 ? '00' : pomTime % 60;
+  const pomDisplayTime = pomTime ? <p>Work Time: {convertTime(pomTime)}</p> : '';
 
-  const breakMinutes = Math.floor(breakTime / 60);
-  const breakSeconds = breakTime % 60 === 0 ? '00' : breakTime % 60;
-
-  const pomDisplayTime = pomTime ? <p>Work Time: {`${pomMinutes}:${pomSeconds}`}</p> : '';
-
-  const breakDisplayTime = breakTime ? <p>Break Time: {`${breakMinutes}:${breakSeconds}`}</p> : '';
+  const breakDisplayTime = breakTime ? <p>Break Time: {convertTime(breakTime)}</p> : '';
 
   const projectDisplay = currentProject ? <p>{currentProject.title}</p> : '';
 

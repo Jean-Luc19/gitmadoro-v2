@@ -2,14 +2,20 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { openModal } from '../../actions';
 import ModalWrapper from './modal-wrapper';
+import { convertTime } from '../../utils/convert-time';
 
 class FinalPreviewModal extends Component {
 
   render() {
     const { pomTime, breakTime, project } = this.props;
+
     return (
-      <ModalWrapper title="This is Your Pom">
-        
+      <ModalWrapper title="Your Pom Preview">
+        <div className="clock-preview">
+          <h2>{convertTime(pomTime)}</h2>
+        </div>
+        <h2>{project}</h2>
+        <h2>{convertTime(breakTime)}</h2>
       </ModalWrapper>
     );
   }

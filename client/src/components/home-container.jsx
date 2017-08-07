@@ -20,7 +20,7 @@ class HomeContainer extends Component {
               <button onClick={() => this.props.openModal(LOGIN_MODAL)}>
                 Login
               </button>
-              <button onClick={() => this.props.openModal(FINAL_PREVIEW_MODAL)}>
+              <button onClick={() => this.props.openModal(CONFIGURE_POM_MODAL)}>
                 Work
               </button>
               <button>About</button>

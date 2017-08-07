@@ -11,7 +11,7 @@ const ModalWrapper = props => {
             <div className="modal-dialog">
               <div className="top-bar">
                 <p>{props.title}</p>
-                <a onClick={() => props.closeModal()}>Close</a>
+                <p><a onClick={() => props.closeModal()}>Close</a></p>
               </div>
 
               {props.children}
