@@ -100,3 +100,15 @@ p {
 .hidden {
   display: none;
 }
+
+.pom-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.clock-preview {
+
+  background-color: goldenrod;
+  border-radius: 50%;
+}

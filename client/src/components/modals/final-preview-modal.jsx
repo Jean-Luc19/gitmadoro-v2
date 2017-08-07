@@ -11,11 +11,13 @@ class FinalPreviewModal extends Component {
 
     return (
       <ModalWrapper title="Your Pom Preview">
-        <div className="clock-preview">
-          <h2>{convertTime(pomTime)}</h2>
+        <div className="pom-preview">
+          <div className="clock-preview">
+            <h2>{convertTime(pomTime)}</h2>
+          </div>
+          <h2>{project}</h2>
+          <h2>{convertTime(breakTime)}</h2>
         </div>
-        <h2>{project}</h2>
-        <h2>{convertTime(breakTime)}</h2>
       </ModalWrapper>
     );
   }
