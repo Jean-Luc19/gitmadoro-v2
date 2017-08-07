@@ -105,10 +105,15 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
+
 }
 
 .clock-preview {
-
+  height: 300px;
+  width: 50%;
   background-color: goldenrod;
   border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
