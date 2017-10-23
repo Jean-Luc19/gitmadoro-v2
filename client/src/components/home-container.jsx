@@ -23,7 +23,7 @@ class HomeContainer extends Component {
               <button onClick={() => this.props.openModal(CONFIGURE_POM_MODAL)}>
                 Work
               </button>
-              <button>About</button>
+              <button className='home-button'>About</button>
             </div>
 
           </div>
