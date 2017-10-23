@@ -6,7 +6,7 @@ import ModalConductor from './modal-conductor';
 const App = () => {
   return (
     <div>
-      <ModalConductor />
+      <ModalConductor name={'tony'}/>
       <HomeContainer />
     </div>
   );
